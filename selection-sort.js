@@ -1,16 +1,27 @@
-const selectionSort = (numArray) => {
-    for (i = 0; i < numArray.length - 1; i++) {
-        minIndex = i;
-        for (j = i + 1; j < numArray.length; j++) {
-            if (numArray[j] < numArray[minIndex]) {
-                minIndex = j;
-            }
-        };
-        swapArray(numArray, i, minIndex);
-    };
-    return numArray;
-};
-
-const swapArray = (numArray, i, minIndex) => {
-    return [numArray[i], numArray[minIndex]] = [numArray[minIndex], numArray[i]];
-}
+function selectionSort(arr) {
+    const n = arr.length;
+    
+    // Traverse through the entire array
+    for (let i = 0; i < n - 1; i++) {
+      let minIndex = i; // Assume the current element is the minimum
+    
+      // Find the minimum element in the unsorted part of the array
+      for (let j = i + 1; j < n; j++) {
+        if (arr[j] < arr[minIndex]) {
+          minIndex = j;
+        }
+      }
+    
+      // Swap the minimum element with the first element in the unsorted part
+      if (minIndex !== i) {
+        [arr[i], arr[minIndex]] = [arr[minIndex], arr[i]];
+      }
+    }
+    
+    return arr;
+  }
+  
+  // Example usage:
+  const array = [64, 25, 12, 22, 11];
+  console.log(selectionSort(array)); // Output: [11, 12, 22, 25, 64]
+  
